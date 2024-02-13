@@ -1,0 +1,38 @@
+.listContend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 5px 0px;
+  margin: 10px 0px;
+  color: white;
+  background-color: #474e68;
+}
+
+.boxform {
+  display: flex;
+  flex-direction: column;
+  margin: 5% 0px;
+}
+
+@media screen and (min-width: 900px) {
+  .formAndList {
+    display: flex;
+  }
+  .formContent {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 0px 10px;
+    border-right: 1px solid white;
+  }
+  .itemsGrid {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding: 5px 20px;
+    overflow-y: scroll;
+    height: 400px;
+  }
+}

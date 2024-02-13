@@ -1,0 +1,10 @@
+.main {
+  cursor: pointer;
+}
+
+.title {
+  padding: 5px 10px;
+  background-color: #404258;
+  border-end-end-radius: 20px;
+  border-start-start-radius: 20px;
+}

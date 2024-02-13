@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #6b728e;
+  color: #404258;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.content:hover {
+  background-color: #404258;
+  color: #6b728e;
+  border: 2px solid #6b728e;
+  cursor: pointer;
+  transition: 0.3s;
+}

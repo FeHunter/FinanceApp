@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*
+Paleta de cores:
+https://colorhunt.co/palette/404258474e6850577a6b728e
+*/
+
+* {
+  font-family: 'Roboto', sans-serif;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+#mainPage {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 6% 6% 83% 5%;
+  grid-template-areas: 'header' 'subMenu' 'body' 'footer';
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: #404258;
+}

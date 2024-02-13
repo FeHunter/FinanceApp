@@ -1,0 +1,75 @@
+.mainDiv {
+  background-color: #6b728e;
+  padding: 2%;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.selection {
+  border: none;
+  background-color: #404258;
+  color: white;
+  padding: 2px;
+}
+
+.calculateBtn {
+  width: 100%;
+  background-color: #404258;
+  margin: 10px 0px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+.calculateBtn:hover {
+  cursor: pointer;
+  background-color: #6b728e;
+  border: 2px solid #404258;
+  transition: 0.2s;
+}
+
+p {
+  margin: 10px 0px;
+}
+
+.finalResultContent {
+  border: 2px solid #404258;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 900px) {
+  .mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 10px 0px;
+  }
+  section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .area1 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 10px;
+  }
+  .area2 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 10px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+  }
+  .area3 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 10px;
+  }
+}

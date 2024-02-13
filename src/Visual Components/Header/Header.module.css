@@ -1,0 +1,45 @@
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 0px 2%;
+  background-color: #404258;
+}
+
+.logoImg {
+  width: 10%;
+}
+
+.floatMenu {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  left: 0px;
+  top: 0px;
+}
+
+.floatMenu li {
+  list-style: none;
+  text-align: center;
+  border-bottom: 1px solid white;
+  width: 100%;
+  margin: 5%;
+}
+
+.toggle {
+  display: flex;
+  border: none !important;
+  margin-top: 50% !important;
+  text-align: center;
+}
+.toggle:hover {
+  cursor: pointer;
+}

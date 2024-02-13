@@ -1,0 +1,32 @@
+To do:
+Delete item from the list []
+
+No item card adicionar opção de parcela, mostra quantas parcelas e valor de acordo com o cartão de crédito de nada banc. opção de juros e sem suros []
+
+Bug do atraso para calcular provavelmente por causa do useState para guarda os valores, resolver []
+
+Bug no floating menu quando faz scroll da pagina.
+
+
+
+
+
+
+Cores:
+https://colorhunt.co/palette/b4b4b8c7c8cce3e1d9f2efe5
+https://colorhunt.co/palette/404258474e6850577a6b728e
+
+
+Ideia Base:
+Controla finanças pessoa/família.
+
+
+Recursos:
+
+* Contas Fixas, gastos mensais;
+
+* Contas Relativas, gastos que não são fixos;
+
+* Lista de desejos, aba onde ira auxiliar o usuário a comprar o item de desejo, quanto poupar por mês e quanto tempo para coseguir comprar a vista. Caso queira compra na hora mostra opções onde o item está mais barato.
+
+* Área de investimentos, o usuário pode escolher ativos para acompanhar a variação no mercado. informando a quantidade de cotas/ações que possui pode acompanhar o valor total investido no mercado.
