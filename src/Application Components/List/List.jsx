@@ -64,14 +64,9 @@ export function List() {
     console.log(updateList);
   }
 
-  function RemoveFromList(index, item) {
+  function RemoveFromList(item) {
     let updateList = [...list];
-    // updateList.filter((remove) => {
-    //   console.log(`Remove: ${remove[index].name} | Item: ${item[index].name}`);
-    //   remove[index].name !== item[index].name;
-    // });
-    // console.log(updateList);
-    updateList.splice(index, 1);
+    updateList.splice(updateList.indexOf(item), 1);
     setList(updateList);
     const body = JSON.stringify(updateList);
     fetch(`${url}${resource}.json`, {
@@ -145,7 +140,7 @@ export function List() {
               key={index}
               item={item[index]}
               onClick={() => {
-                RemoveFromList(index, item);
+                RemoveFromList(item);
               }}
               popUpContent={
                 <div>
