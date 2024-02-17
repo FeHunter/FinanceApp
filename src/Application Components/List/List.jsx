@@ -4,6 +4,7 @@ import { Input } from '../../Visual Components/Input/Input';
 import { TextArea } from '../../Visual Components/Input/TextArea';
 import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
 import style from './List.module.css';
+import { Card } from '../../Visual Components/Card/Card';
 
 export function List() {
   // Data base
@@ -172,7 +173,8 @@ export function List() {
   };
 
   return (
-    <div className={style.listContend}>
+    <Card title="Wishlist Items">
+      <div className={style.listContend}>
       {/* Add item to the list */}
 
       {width >= 900 ? (
@@ -193,5 +195,6 @@ export function List() {
         </ToggleMenu>
       ) : null}
     </div>
+    </Card>
   );
 }

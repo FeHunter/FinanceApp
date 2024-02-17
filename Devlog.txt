@@ -13,7 +13,6 @@ Bug no floating menu quando faz scroll da pagina.
 
 
 Cores:
-https://colorhunt.co/palette/b4b4b8c7c8cce3e1d9f2efe5
 https://colorhunt.co/palette/404258474e6850577a6b728e
 
 

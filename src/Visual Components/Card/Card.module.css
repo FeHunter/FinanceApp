@@ -1,0 +1,36 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #50577A;
+    margin: 10px 0px;
+}
+
+.controlBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    padding: 0px 20px;
+    background-color: #50577A;
+    border-bottom: 3px solid #404258;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+@media screen and (min-width: 900px) {
+    .controlBar {
+        height: 80px;
+    }
+}

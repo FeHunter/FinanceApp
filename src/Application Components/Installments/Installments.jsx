@@ -2,6 +2,7 @@ import { useState } from 'react';
 import style from './Installments.module.css';
 import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
 import { InstallmentsForm } from '../../Application Components/Installments/InstallmentsForm/InstallmentsForm';
+import { Card } from '../../Visual Components/Card/Card';
 
 /*
 
@@ -115,7 +116,8 @@ export function Installments() {
   }
 
   return (
-    <div className={style.mainDiv}>
+    <Card title="Installments">
+      <div className={style.mainDiv}>
       <h2>Installments</h2>
 
       <section>
@@ -227,5 +229,6 @@ export function Installments() {
         </div>
       </section>
     </div>
+    </Card>
   );
 }
