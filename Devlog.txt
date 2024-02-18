@@ -8,6 +8,11 @@ Bug do atraso para calcular provavelmente por causa do useState para guarda os v
 Bug no floating menu quando faz scroll da pagina.
 
 
+Aba de Parcelas, alterar para Fatura do cartão: nome da aba (No Cartão);
+Terá 3 abas
+1° Calcular Juros de produto
+2° Ver possivel taxa de juros de acordo com o banco por atrasos no pagamento da fatura
+3° Aba com informações e ajuda para o usuário
 
 
 

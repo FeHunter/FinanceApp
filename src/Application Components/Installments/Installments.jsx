@@ -116,12 +116,12 @@ export function Installments() {
   }
 
   return (
-    <Card title="Installments">
+    <Card title="On the Card">
       <div className={style.mainDiv}>
-      <h2>Installments</h2>
-
       <section>
+        
         <div className={style.area1}>
+          <h2>Calculate product interest</h2>
           <select
             className={style.selection}
             value={selectMode}
