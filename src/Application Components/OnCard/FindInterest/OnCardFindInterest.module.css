@@ -1,0 +1,27 @@
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 10px 0px;
+    padding: 10px 2px;
+}
+
+.results {
+    text-align: center;
+    border: 2px solid #6B728E;
+    padding: 5px;
+}
+.interest {
+    font-size: 1.5em;
+    font-weight: 800;
+}
+.totalPrice {
+    font-size: .8em;
+    font-style: italic;
+}

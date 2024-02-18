@@ -1,8 +1,8 @@
 import styleModule from './Input.module.css';
 
-export function Input({ type, value, placeholder, onChange, htmlFor }) {
+export function Input({ type, value, placeholder, onChange, title }) {
   return (
-    <label htmlFor={htmlFor}>
+    <label>
       <input
         className={styleModule.layout}
         type={type}
