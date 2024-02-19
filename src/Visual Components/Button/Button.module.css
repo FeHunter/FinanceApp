@@ -1,12 +1,16 @@
 .buttonArea {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 10px 0px;
+    align-items: stretch;
+    /* margin: 10px 0px; */
 }
 
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     background-color: #6B728E;
     color: whitesmoke;

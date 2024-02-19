@@ -37,7 +37,9 @@ export function OnCardFindInterest (){
                 onChange={readerForm}
                 OninstallmentsTime={true}
               />
-              <Button label="Get Interest" width="50%" onClick={() => { {FindOutInterest(); }}} />
+              <span className={style.button}>
+                <Button label="Get Interest" width="50%" onClick={() => { {FindOutInterest(); }}} />
+              </span>
               <div className={style.results} >
                 <span className={style.totalPrice}>
                   { foundInterest > 0 ? (<p>${interest}</p>) : ("") }
