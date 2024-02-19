@@ -1,7 +1,8 @@
+import style from './InstallmentsForm.module.css';
 import { useState } from 'react';
 import { Input } from '../../../Visual Components/Input/Input';
 
-export function InstallmentsForm({ onChange, OninstallmentsTime }) {
+export function InstallmentsForm({ onChange, OninstallmentsTime, input1Name, input2Name, input3Name }) {
   const [price, setPrice] = useState();
   const [installment, setInstallment] = useState();
   const [installmentValue, setInstallmentValue] = useState();
@@ -13,8 +14,8 @@ export function InstallmentsForm({ onChange, OninstallmentsTime }) {
     setInstallmentValue(_installmentValue);
   }
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <p>Product Price:</p>
+    <div style={{ display: 'flex', flexDirection: 'column' }} className={style.formContent}>
+      <p>{input1Name}</p>
       <Input
         type="number"
         placeholder="Product Price"
@@ -23,7 +24,7 @@ export function InstallmentsForm({ onChange, OninstallmentsTime }) {
           inputValues(e.target.value, installment, installmentValue);
         }}
       />
-      <p>Installments Times:</p>
+      <p>{input2Name}</p>
       <Input
         type="number"
         placeholder="Installment Times"
@@ -34,7 +35,7 @@ export function InstallmentsForm({ onChange, OninstallmentsTime }) {
       />
       {OninstallmentsTime ? (
         <span>
-          <p>Installments Value:</p>
+          <p>{input3Name}</p>
           <Input
             type="number"
             placeholder="installment Price"

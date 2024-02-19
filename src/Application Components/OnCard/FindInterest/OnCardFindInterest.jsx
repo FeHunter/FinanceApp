@@ -34,6 +34,9 @@ export function OnCardFindInterest (){
         <div className={style.mainContent}>
           <div className={style.content}>
               <InstallmentsForm
+              input1Name="Product price"
+              input2Name="Installments Times"
+              input3Name="installments Value"
                 onChange={readerForm}
                 OninstallmentsTime={true}
               />

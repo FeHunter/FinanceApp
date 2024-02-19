@@ -3,6 +3,7 @@ import { Card } from "../../Visual Components/Card/Card";
 import { OnCardFindInterest } from './FindInterest/OnCardFindInterest';
 import { Button } from '../../Visual Components/Button/Button';
 import { useEffect, useState } from 'react';
+import { InterestForDelay } from './InterestForDelay/InterestForDelay';
 
 export function OnCard (){
 
@@ -58,6 +59,7 @@ export function OnCard (){
                 </div>
                 <div className={style.area2} style={viewArea2}>
                     <h2 className={style.title}>Calculate Interest for delay</h2>
+                    <InterestForDelay/>
                 </div>
                 <div className={style.area3} style={viewArea3}>
                     <h2 className={style.title}>How to use these tools</h2>

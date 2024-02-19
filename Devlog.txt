@@ -1,11 +1,22 @@
 To do:
 Delete item from the list []
 
-No item card adicionar opção de parcela, mostra quantas parcelas e valor de acordo com o cartão de crédito de nada banc. opção de juros e sem suros []
-
 Bug do atraso para calcular provavelmente por causa do useState para guarda os valores, resolver []
 
-Bug no floating menu quando faz scroll da pagina.
+
+
+Ajustar calculo de juros por atraso da fatura:
+Dados com o Nubank:
+Juros de 11.75% ao mês
+R$ 609.55 + R$ 5.82 = R$615.37
++ R$171.27
+R$786.64
+
+Informações sobre taxas e juros
+IOF: 0.38$ + 0.01118% ao dia
+custo efetivo total (CET): 296.10% ao ano
+
+
 
 
 Aba de Parcelas, alterar para Fatura do cartão: nome da aba (No Cartão);
