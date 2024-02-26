@@ -15,7 +15,10 @@ export function ItemCard({ item, onClick, popUpContent, onClickSend }) {
   const completStyle = complet
     ? {
         borderLeft: '20px solid #1AE586',
-        transition: '.7s',
+        borderRight: '1px solid #1AE586',
+        borderBottom: '1px solid #1AE586',
+        borderTop: '1px solid #1AE586',
+        transition: '.3s',
         borderStartStartRadius: '20px',
         borderEndStartRadius: '20px',
       }

@@ -8,9 +8,9 @@ export function MainContent() {
   return (
     <main className={style.main}>
       <List />
-      <OnCard/>
+      {/* <OnCard/> */}
       {/* <Installments /> */}
-      <BillsManager />
+      {/* <BillsManager /> */}
     </main>
   );
 }

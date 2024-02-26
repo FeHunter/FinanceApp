@@ -9,6 +9,9 @@
   margin: 2% 0px;
   background-color: #404258;
   border-left: 20px solid #6b728e;
+  border-top: 1px solid #6B728E;
+  border-bottom: 1px solid #6B728E;
+  border-right: 1px solid #6B728E;
   transition: 0.4s;
 }
 
