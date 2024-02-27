@@ -12,12 +12,8 @@ export function UserFInanceStatus ({userName, balance, bills, investments}){
     }, []);
 
     async function LoadCurrencyExchange () {
-        await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')
+        return await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')
         .then(res => { res.json().then(res => setCurrencyExchange(res)) });
-        console.log(CurrencyExchange);
-    }
-    function USDtoBRL () {
-        return CurrencyExchange.USDBRL.ask * balance;
     }
 
     const [expand, setExpand] = useState(false);
@@ -32,6 +28,10 @@ export function UserFInanceStatus ({userName, balance, bills, investments}){
                 <i class="fa-solid fa-wallet"></i>
                 <p>Balance: {balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
             </span>
+            <span className={style.item}  title="Bills">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <p>Bills: {bills.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                    </span>
             {toggleButton}
         </div>
     );
@@ -51,6 +51,12 @@ export function UserFInanceStatus ({userName, balance, bills, investments}){
         )
     }
 
+    const status = () => {
+        return balance > bills
+            ? <p style={{color: '#8bd484'}}>Status: (good)<br/> {parseFloat(balance - bills).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+            : <p style={{color: '#d48484'}}>Status: (bad)<br/> {parseFloat(balance - bills).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+    };
+
     const moreOptions = (
         <div className={style.expandPanel}>
             <PopUp
@@ -60,17 +66,20 @@ export function UserFInanceStatus ({userName, balance, bills, investments}){
             >
                 <div>
                     {currencyContent()}
-                    <span className={style.item} title="Balance">
-                        <i class="fa-solid fa-wallet"></i>
-                        <p>Balance: {balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-                    </span>
-                    <span className={style.item}  title="Investments">
-                        <i class="fa-solid fa-money-bill-trend-up"></i>
-                        <p>Investments: {investments.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-                    </span> 
-                    <span className={style.item}  title="Bills">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                        <p>Bills: {bills.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                    <span className={style.infosContent}> 
+                        <span className={style.item} title="Balance">
+                            <i class="fa-solid fa-wallet"></i>
+                            <p>Balance: {balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                        </span>
+                        <span className={style.item}  title="Investments">
+                            <i class="fa-solid fa-money-bill-trend-up"></i>
+                            <p>Investments: {investments.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                        </span> 
+                        <span className={style.item}  title="Bills">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                            <p>Bills: {bills.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                        </span>
+                        {status()}
                     </span>
                 </div>
             </PopUp>

@@ -32,6 +32,10 @@ Cores:
 https://colorhunt.co/palette/404258474e6850577a6b728e
 
 
+@media screen and (min-width: 900px) {
+    
+}
+
 Ideia Base:
 Controla finanças pessoa/família.
 

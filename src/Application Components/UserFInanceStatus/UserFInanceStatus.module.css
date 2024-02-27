@@ -40,7 +40,7 @@
 }
 
 .popUpContent {
-    width: 80%;
+    width: 90%;
     height: 100%;
 }
 
@@ -50,5 +50,12 @@
     width: 100%;
     border-top: 1px solid #6B728E;
     border-bottom: 1px solid #6B728E;
+    background-color: #474E68;
 }
 
+@media screen and (min-width: 900px) {
+    .infosContent {
+        display: flex;
+        justify-content: space-between;
+    }
+}

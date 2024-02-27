@@ -10,7 +10,7 @@ function App() {
     <div id="mainPage">
       <Header title="Financial Controller App" />
       <QuickMenu />
-      <UserFInanceStatus userName={"João"} balance={2700} bills={50} investments={7000} />
+      <UserFInanceStatus userName={"João"} balance={2700} bills={4343} investments={7000} />
       <MainContent />
       <Footer /> 
     </div>
