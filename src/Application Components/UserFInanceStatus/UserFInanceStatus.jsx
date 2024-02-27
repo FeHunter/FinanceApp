@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import style from './UserFInanceStatus.module.css';
+import { PopUp } from '../../Visual Components/PopUp/PopUp';
 
 export function UserFInanceStatus ({userName, balance, bills, investments}){
 
@@ -23,6 +24,7 @@ export function UserFInanceStatus ({userName, balance, bills, investments}){
 
     const moreOptions = (
         <div className={style.expandPanel}>
+            <PopUp visible={expand} closePopUp={() => { setExpand(!expand); }} >
             <span className={style.item} title="Balance">
                     <i class="fa-solid fa-wallet"></i>
                     <p>Balance: {balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
@@ -35,7 +37,8 @@ export function UserFInanceStatus ({userName, balance, bills, investments}){
                     <i class="fa-solid fa-money-bill-trend-up"></i>
                     <p>Investments: {investments.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                 </span> 
-            {toggleButton}
+            </PopUp>
+            
         </div>
     );
 
