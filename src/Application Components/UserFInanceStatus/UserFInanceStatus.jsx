@@ -24,7 +24,11 @@ export function UserFInanceStatus ({userName, balance, bills, investments}){
 
     const moreOptions = (
         <div className={style.expandPanel}>
-            <PopUp visible={expand} closePopUp={() => { setExpand(!expand); }} >
+            <PopUp
+                visible={expand}
+                closePopUp={() => { setExpand(!expand); }}
+                customStyle={style.popUpContent}
+            >
             <span className={style.item} title="Balance">
                     <i class="fa-solid fa-wallet"></i>
                     <p>Balance: {balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
