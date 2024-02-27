@@ -1,0 +1,40 @@
+.main {
+    grid-area: userStatus;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    /* background-color: #474E68; */
+    padding: 0px 10px;
+    border-bottom: 2px solid #6B728E;
+}
+
+i {
+    margin-right: 5px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    /* border: 1px solid blue; */
+    transition: .2s;
+}
+
+.toggle {
+    font-size: 1.3em;
+}
+.toggle:hover {
+    cursor: pointer;
+}
+
+.shrinkOption, .expandPanel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}

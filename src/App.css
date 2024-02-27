@@ -10,13 +10,14 @@ https://colorhunt.co/palette/404258474e6850577a6b728e
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  user-select: none;
 }
 
 #mainPage {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 6% 6% 83% 5%;
-  grid-template-areas: 'header' 'subMenu' 'body' 'footer';
+  grid-template-rows: 6% 6% 13% 70% 5%;
+  grid-template-areas: 'header' 'subMenu' 'userStatus' 'body' 'footer';
   width: 100vw;
   height: 100vh;
   color: white;

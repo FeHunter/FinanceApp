@@ -170,26 +170,26 @@ export function List() {
   return (
     <Card title="Wishlist Items">
       <div className={style.listContend}>
-      {/* Add item to the list */}
+        {/* Add item to the list */}
 
-      {width >= 900 ? (
-        <div className={style.formAndList}>
-          {FormAddToList()}
-          {MyListItens()}
-        </div>
-      ) : (
-        <ToggleMenu title="Add to list" view={false}>
-          {FormAddToList()}
-        </ToggleMenu>
-      )}
+        {width >= 900 ? (
+          <div className={style.formAndList}>
+            {FormAddToList()}
+            {MyListItens()}
+          </div>
+        ) : (
+          <ToggleMenu title="Add to list" view={false}>
+            {FormAddToList()}
+          </ToggleMenu>
+        )}
 
-      {/* View item of the list */}
-      {width < 900 ? (
-        <ToggleMenu title="My item list" view={true}>
-          {MyListItens()}
-        </ToggleMenu>
-      ) : null}
-    </div>
+        {/* View item of the list */}
+        {width < 900 ? (
+          <ToggleMenu title="My item list" view={true}>
+            {MyListItens()}
+          </ToggleMenu>
+        ) : null}
+      </div>
     </Card>
   );
 }

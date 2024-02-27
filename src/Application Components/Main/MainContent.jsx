@@ -7,7 +7,7 @@ import style from './MainContent.module.css';
 export function MainContent() {
   return (
     <main className={style.main}>
-      <List />
+      {/* <List /> */}
       {/* <OnCard/> */}
       {/* <Installments /> */}
       {/* <BillsManager /> */}
