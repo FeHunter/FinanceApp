@@ -1,8 +1,7 @@
 .content {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-content:center;
   flex-wrap: wrap;
   background-color: #6b728e;
   color: #404258;

@@ -1,0 +1,18 @@
+.buttonCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 20%;
+    margin: 10px;
+    border: 2px solid #50577A;
+    font-size: 1em;
+    transition: .3s;
+}
+
+.buttonCard:hover {
+    cursor: pointer;
+    border: 2px solid #6B728E;
+    font-size: 1.1em;
+    transition: .3s;
+}
