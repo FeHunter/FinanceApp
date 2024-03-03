@@ -6,9 +6,7 @@ export function PopUp({ visible, children, closePopUp, customStyle }) {
     <div className={style.mainDiv} style={viewPopUp}>
       <div className={style.background}>
         <div className={customStyle ? customStyle : style.content}>{children}</div>
-        <button className={style.sendButton} onClick={closePopUp}>
-          Close
-        </button>
+        <button className={style.sendButton} onClick={closePopUp}> Close </button>
       </div>
     </div>
   );

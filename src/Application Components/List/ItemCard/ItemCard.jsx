@@ -10,7 +10,11 @@ export function ItemCard({ item, onClick, popUpContent, onClickSend }) {
   //   item !== null ? item.isComplet : false
   // );
 
-  const [complet, setComplet] = useState();
+  const [complet, setComplet] = useState(item.isComplet);
+
+  function markAsComplet (item){
+    item.setComplet(complet);
+  }
 
   const completStyle = complet
     ? {
@@ -23,6 +27,7 @@ export function ItemCard({ item, onClick, popUpContent, onClickSend }) {
         borderEndStartRadius: '20px',
       }
     : {};
+
   return (
     <div className={style.itemCard} style={completStyle}>
       <p className={style.title}>{item?.name}</p>
@@ -35,7 +40,7 @@ export function ItemCard({ item, onClick, popUpContent, onClickSend }) {
             <div
               onClick={() => {
                 setComplet(!complet);
-                onClickSend(complet);
+                onClickSend(markAsComplet);
               }}
             >
               {complet ? (

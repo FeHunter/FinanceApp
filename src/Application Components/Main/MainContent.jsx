@@ -9,6 +9,7 @@ import style from './MainContent.module.css';
 
 export function MainContent() {
 
+  const [viewWishList, setviewWishList] = useState(false);
   const [list, setList] = useState(false);
 
   return (
@@ -18,8 +19,8 @@ export function MainContent() {
       {/* <Installments /> */}
       {/* <BillsManager /> */}
       <div className={style.navegationCard}>
-        <ButtonCard>
-          <p>Bills</p>
+        <ButtonCard onClick={()=>{setviewWishList(true)}}>
+          <p>Wishlist</p>
         </ButtonCard>
         <ButtonCard>
           <p>Investments</p>
@@ -34,6 +35,15 @@ export function MainContent() {
           </ButtonCard>
         </PopUp>
       </div>
+
+      {/* Windows */}
+      <PopUp visible={viewWishList} closePopUp={()=>{setviewWishList(false)}}>
+        <div className={style.contentWindow}>
+          <h2>My Wishlist</h2>
+          <List title={'Wishlist'}/>
+        </div>
+      </PopUp>
+
     </main>
   );
 }

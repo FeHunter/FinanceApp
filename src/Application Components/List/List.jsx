@@ -6,7 +6,7 @@ import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
 import style from './List.module.css';
 import { Card } from '../../Visual Components/Card/Card';
 
-export function List() {
+export function List({title}) {
   // Data base
   const [status, setStatus] = useState(null);
   const url = 'https://finance-app-ae36c-default-rtdb.firebaseio.com';
@@ -19,22 +19,27 @@ export function List() {
   const [price, setPrice] = useState(0);
 
   async function SendData(data) {
-    const body = JSON.stringify(data);
-    const request = await fetch(`${url}${resource}.json`, {
-      method: 'post',
-      body: body,
-    });
-    // request.then(alert('Success!')).catch((err) => alert(err.message));
+    try {
+      const response = await fetch(`${url}${resource}.json`, {
+        method: 'put',
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to update data');
+      }
+    } catch (error) {
+      console.error('Error updating data:', error);
+    }
   }
 
   useEffect(() => {
     fetch(`${url}${resource}.json`)
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((res) => {
         res != null ? setList(convertData(res)) : console.log('empty list');
-      });
+      })
+      .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
   function convertData(data) {
@@ -45,34 +50,53 @@ export function List() {
     });
   }
 
-  function AddToList(complet) {
+  async function AddToList() {
     const item = {
       name: name,
       about: about,
       price: price,
-      isComplet: complet !== null ? complet : false,
+      isComplet: false,
     };
+  
+    try {
+      // Adiciona o novo item ao Firebase
+      await SendData([...list, item]);
+  
+      // Atualiza o estado local
+      setList((prevList) => [...prevList, item]);
+  
+      // Limpa os campos do formulário
+      setName('');
+      setAbout('');
+      setPrice(0);
+      setStatus('Added with success');
+    } catch (error) {
+      console.error('Error adding item to the list:', error);
+      setStatus('Failed to add item');
+    }
+  }
+
+  async function UpdateList(item) {
     let updateList = [...list];
-    updateList.push(item);
-    setList(updateList);
-    SendData(updateList);
-    // Clear input
-    setName('');
-    setAbout('');
-    setPrice(0);
-    setStatus('Add with success');
-    console.log(updateList);
+    const index = updateList.indexOf(item);
+    updateList[index].isComplet = !updateList[index].isComplet;
+    try {
+      // Adiciona o novo item ao Firebase
+      await SendData([...list]);
+      // Atualiza o estado local
+      setList((prevList) => [...prevList]);
+    } catch (error) {
+      console.error('Error adding item to the list:', error);
+      setStatus('Failed to add item');
+    }
   }
 
   function RemoveFromList(item) {
     let updateList = [...list];
-    updateList.splice(updateList.indexOf(item), 1);
+    const index = updateList.indexOf(item);
+    updateList.splice(index, 1);
     setList(updateList);
-    const body = JSON.stringify(updateList);
-    fetch(`${url}${resource}.json`, {
-      method: 'put',
-      body: body,
-    });
+    SendData(updateList);
   }
 
   const [width, setWidth] = useState();
@@ -136,9 +160,9 @@ export function List() {
         {list.map((item, index) => {
           return (
             <ItemCard
-              // onClickSend={AddToList}
+              onClickSend={()=>{UpdateList(item)}}
               key={index}
-              item={item[index]}
+              item={item}
               onClick={() => {
                 RemoveFromList(item);
               }}
@@ -168,7 +192,7 @@ export function List() {
   };
 
   return (
-    <Card title="Wishlist Items">
+    <Card title={title}>
       <div className={style.listContend}>
         {/* Add item to the list */}
 

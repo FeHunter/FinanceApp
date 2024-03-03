@@ -3,7 +3,7 @@ import style from './Card.module.css';
 
 export function Card ({title, children}){
 
-    const [expand, setExpand] = useState(false);
+    const [expand, setExpand] = useState(true);
 
     const visible = expand ? {display: 'flex'} : {display: 'none'};
 
