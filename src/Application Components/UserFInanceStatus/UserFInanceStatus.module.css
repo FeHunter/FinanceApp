@@ -29,6 +29,7 @@
 }
 .toggle:hover {
     cursor: pointer;
+    color: #b4bde3;
 }
 
 .shrinkOption, .expandPanel {
