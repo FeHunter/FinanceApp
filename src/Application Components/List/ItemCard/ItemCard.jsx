@@ -52,10 +52,9 @@ export function ItemCard({ item, onClick, popUpContent, onClickSend }) {
           }
         />
         <FloatingItem
-          title="Installments"
+          title="Edit"
           trigger={
-            <i
-              class="fa-solid fa-comment-dollar"
+            <i class="fa-solid fa-pen-to-square"
               onClick={() => {
                 setPopUp(!popUp);
               }}

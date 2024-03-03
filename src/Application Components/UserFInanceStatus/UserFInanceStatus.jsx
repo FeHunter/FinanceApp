@@ -2,17 +2,11 @@ import { useEffect, useState } from 'react';
 import style from './UserFInanceStatus.module.css';
 import { PopUp } from '../../Visual Components/PopUp/PopUp';
 
-export function UserFInanceStatus (){
+export function UserFInanceStatus ({userName, balance, bills, investments, }){
 
     const [CurrencyExchange, setCurrencyExchange] = useState();
     const [editBalance, setEditBalance] = useState(false);
     const [editBills, setEditBills] = useState(false);
-
-    // User values
-    const [userName, setUserName] = useState('');
-    const [balance, setBalance] = useState(0);
-    const [bills, setBills] = useState(0);
-    const [investments, setInvestments] = useState(0);
 
     // Receber e tratar API de cotação.
     useEffect(()=>{
@@ -35,24 +29,24 @@ export function UserFInanceStatus (){
             <span className={style.item} title="Balance">
                 <span onClick={()=>{setEditBalance(!editBalance)}} style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
                     <i class="fa-solid fa-wallet"></i>
-                    <p>Balance: {balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                    <p>Balance: {parseFloat(balance).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                 </span>
                 <PopUp visible={editBalance} closePopUp={()=>{setEditBalance(!editBalance)}}>
                     <div>
                         <p>Tell us your current balance?</p>
-                        <input type='number' placeholder='$2.250,00' onChange={e => {setBalance(parseFloat(e.target.value))}} />
+                        <input type='number' placeholder='$2.250,00' />
                     </div>
                 </PopUp>
             </span>
             <span className={style.item}  title="Bills">
                 <span onClick={()=>{setEditBills(!editBills)}} style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
                     <i class="fa-solid fa-file-invoice-dollar"></i>
-                    <p>Bills: {bills.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                    <p>Bills: {parseFloat(bills).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                 </span>
                 <PopUp visible={editBills} closePopUp={()=>{setEditBills(!editBills)}}>
                     <div>
                         <p>what are your bills today?</p>
-                        <input type='number' placeholder='$120' onChange={e => {setBills(parseFloat(e.target.value))}} />
+                        <input type='number' placeholder='$120'/>
                     </div>
                 </PopUp>
             </span>
@@ -93,15 +87,15 @@ export function UserFInanceStatus (){
                     <span className={style.infosContent}> 
                         <span className={style.item} title="Balance">
                             <i class="fa-solid fa-wallet"></i>
-                            <p>Balance: {balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                            <p>Balance: {parseFloat(balance).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                         </span>
                         <span className={style.item}  title="Investments">
                             <i class="fa-solid fa-money-bill-trend-up"></i>
-                            <p>Investments: {investments.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                            <p>Investments: {parseFloat(investments).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                         </span> 
                         <span className={style.item}  title="Bills">
                             <i class="fa-solid fa-file-invoice-dollar"></i>
-                            <p>Bills: {bills.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                            <p>Bills: {parseFloat(bills).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                         </span>
                         {status()}
                     </span>

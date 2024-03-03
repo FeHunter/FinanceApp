@@ -6,17 +6,18 @@ import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
 import style from './List.module.css';
 import { Card } from '../../Visual Components/Card/Card';
 
-export function List({title}) {
+export function List({title, urlResource, balance}) {
   // Data base
   const [status, setStatus] = useState(null);
   const url = 'https://finance-app-ae36c-default-rtdb.firebaseio.com';
-  const resource = '/ItemList';
+  const resource = `/${urlResource}`;
 
   // Item List
   const [list, setList] = useState([]);
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
   const [price, setPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   async function SendData(data) {
     try {
@@ -40,6 +41,8 @@ export function List({title}) {
         res != null ? setList(convertData(res)) : console.log('empty list');
       })
       .catch((error) => console.error('Error fetching data:', error));
+
+      CalculateTotalPriceOfWishList();
   }, []);
 
   function convertData(data) {
@@ -97,6 +100,19 @@ export function List({title}) {
     updateList.splice(index, 1);
     setList(updateList);
     SendData(updateList);
+  }
+
+  useEffect(()=>{
+    CalculateTotalPriceOfWishList();
+  }, [list]);
+  function CalculateTotalPriceOfWishList (){
+    let total = 0;
+    for (let i=0; i < list.length; i++){
+      if (!list[i].isComplet){
+        total += parseFloat(list[i].price);
+      }
+    }
+    setTotalPrice(parseFloat(total).toFixed(2));
   }
 
   const [width, setWidth] = useState();
@@ -192,7 +208,11 @@ export function List({title}) {
   };
 
   return (
-    <Card title={title}>
+    <Card 
+      title={title}
+      myBalance={balance}
+      info={totalPrice}
+    >
       <div className={style.listContend}>
         {/* Add item to the list */}
 
