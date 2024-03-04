@@ -18,9 +18,9 @@ export function Card ({title, info, myBalance, children}){
             <div className={style.controlBar} onClick={()=>{setExpand(!expand)}}>
                 <div className={style.infoContent}>
                     <h2>{title}</h2>
-                    <p><span className={style.valueTxt}>Valor da lista</span> {parseFloat(info).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-                    <p><span className={style.valueTxt}>Saldo Atual</span> {parseFloat(myBalance).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-                    <p><span className={style.valueTxt}>Restante</span> <span style={restanteStyle}>{restante.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span></p>
+                    <p><span className={style.valueTxt}>List value</span> {parseFloat(info).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                    <p><span className={style.valueTxt}>Current Balance</span> {parseFloat(myBalance).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                    <p><span className={style.valueTxt}>Remaining Balance</span> <span style={restanteStyle}>{restante.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span></p>
                 </div>
                 <span>{button}</span>
             </div>

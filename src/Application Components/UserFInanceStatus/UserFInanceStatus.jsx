@@ -80,7 +80,7 @@ export function UserFInanceStatus ({userName, balance, bills, investments, }){
             <Window
                 visible={expand}
                 closeWindow={() => { setExpand(!expand); }}
-                customStyle={style.WindowContent}
+                customStyle={style.windowContent}
             >
                 <div>
                     {currencyContent()}
