@@ -1,0 +1,55 @@
+.mainDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 95%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.background {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 92% 8%;
+  grid-template-areas: 'content' 'closeBtn';
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: #404258;
+  color: white;
+}
+
+.content {
+  grid-area: content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.sendButton {
+  grid-area: closeBtn;
+  padding: 5px 10px;
+  margin-top: 10px;
+  color: white;
+  width: 100%;
+  height: 100%;
+  background-color: #404258;
+  border: none;
+  border-top: 2px dashed #6b728e;
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+}
+.sendButton:hover {
+  cursor: pointer;
+  background-color: #6b728e;
+  color: black;
+  transition: 0.2s;
+}

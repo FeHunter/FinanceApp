@@ -1,5 +1,4 @@
 import { QuickViewContent } from '../../../Visual Components/Header/QuickMenu/QuickViewContent';
-import { PopUp } from '../../PopUp/PopUp';
 import style from './QuickMenu.module.css';
 
 export function QuickMenu() {

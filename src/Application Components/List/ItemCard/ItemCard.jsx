@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import style from './ItemCard.module.css';
 import { FloatingItem } from '../../../Visual Components/Floating Item/FloatingItem';
-import { PopUp } from '../../../Visual Components/PopUp/PopUp';
+import { Window } from '../../../Visual Components/Windows/Window';
 
-export function ItemCard({ item, onClick, popUpContent, onClickSend }) {
-  const [popUp, setPopUp] = useState(false);
+export function ItemCard({ item, onClick, WindowContent, onClickSend }) {
+  const [window, setWindow] = useState(false);
 
   // const [complet, setComplet] = useState(
   //   item !== null ? item.isComplet : false
@@ -56,16 +56,16 @@ export function ItemCard({ item, onClick, popUpContent, onClickSend }) {
           trigger={
             <i class="fa-solid fa-pen-to-square"
               onClick={() => {
-                setPopUp(!popUp);
+                setWindow(true);
               }}
             ></i>
           }
           content={
-            <PopUp
-              visible={popUp}
-              content={popUpContent}
-              closePopUp={() => {
-                setPopUp(false);
+            <Window
+              visible={window}
+              content={WindowContent}
+              closeWindow={() => {
+                setWindow(false);
               }}
             />
           }

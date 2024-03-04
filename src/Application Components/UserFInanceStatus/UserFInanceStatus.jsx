@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import style from './UserFInanceStatus.module.css';
-import { PopUp } from '../../Visual Components/PopUp/PopUp';
+import { Window } from '../../Visual Components/Windows/Window';
 
 export function UserFInanceStatus ({userName, balance, bills, investments, }){
 
@@ -31,24 +31,24 @@ export function UserFInanceStatus ({userName, balance, bills, investments, }){
                     <i class="fa-solid fa-wallet"></i>
                     <p>Balance: {parseFloat(balance).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                 </span>
-                <PopUp visible={editBalance} closePopUp={()=>{setEditBalance(!editBalance)}}>
+                <Window visible={editBalance} closeWindow={()=>{setEditBalance(!editBalance)}}>
                     <div>
                         <p>Tell us your current balance?</p>
                         <input type='number' placeholder='$2.250,00' />
                     </div>
-                </PopUp>
+                </Window>
             </span>
             <span className={style.item}  title="Bills">
                 <span onClick={()=>{setEditBills(!editBills)}} style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
                     <i class="fa-solid fa-file-invoice-dollar"></i>
                     <p>Bills: {parseFloat(bills).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                 </span>
-                <PopUp visible={editBills} closePopUp={()=>{setEditBills(!editBills)}}>
+                <Window visible={editBills} closeWindow={()=>{setEditBills(!editBills)}}>
                     <div>
                         <p>what are your bills today?</p>
                         <input type='number' placeholder='$120'/>
                     </div>
-                </PopUp>
+                </Window>
             </span>
             {toggleButton}
         </div>
@@ -77,10 +77,10 @@ export function UserFInanceStatus ({userName, balance, bills, investments, }){
 
     const moreOptions = (
         <div className={style.expandPanel}>
-            <PopUp
+            <Window
                 visible={expand}
-                closePopUp={() => { setExpand(!expand); }}
-                customStyle={style.popUpContent}
+                closeWindow={() => { setExpand(!expand); }}
+                customStyle={style.WindowContent}
             >
                 <div>
                     {currencyContent()}
@@ -100,7 +100,7 @@ export function UserFInanceStatus ({userName, balance, bills, investments, }){
                         {status()}
                     </span>
                 </div>
-            </PopUp>
+            </Window>
             
         </div>
     );

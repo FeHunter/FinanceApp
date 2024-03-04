@@ -10,7 +10,7 @@ function App() {
 
   // User values
   const [userName, setUserName] = useState('');
-  const [balance, setBalance] = useState(2600);
+  const [balance, setBalance] = useState(2700);
   const [bills, setBills] = useState(0);
   const [investments, setInvestments] = useState(0);
 

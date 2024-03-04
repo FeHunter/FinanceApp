@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Installments } from '../../Application Components/Installments/Installments';
 import { List } from '../../Application Components/List/List';
 import { ButtonCard } from '../../Visual Components/Button/ButtonCard/ButtonCard';
-import { PopUp } from '../../Visual Components/PopUp/PopUp';
+import { Window } from '../../Visual Components/Windows/Window';
 import { BillsManager } from '../BillsManager/BillsManager';
 import { OnCard } from '../OnCard/OnCard';
 import style from './MainContent.module.css';
@@ -29,19 +29,19 @@ export function MainContent({balance}) {
         <ButtonCard onClick={()=>{setviewBillsList(true)}}>
           <p>Bills</p>
         </ButtonCard>
-        <PopUp
+        <Window
           visible={list}
-          closePopUp={()=>{setList(!list)}}
+          closeWindow={()=>{setList(!list)}}
           children={<List />}
         >
           <ButtonCard>
             <p>Wish List</p>
           </ButtonCard>
-        </PopUp>
+        </Window>
       </div>
 
       {/* Windows */}
-      <PopUp visible={viewWishList} closePopUp={()=>{setviewWishList(false)}}>
+      <Window visible={viewWishList} closeWindow={()=>{setviewWishList(false)}}>
         <div className={style.contentWindow}>
           <List title={'Wishlist'} urlResource={'WishList'} balance={balance}  />
           <ToggleMenu title={'Help'}>
@@ -57,12 +57,12 @@ export function MainContent({balance}) {
             </div>
           </ToggleMenu>
         </div>
-      </PopUp>
-      <PopUp visible={viewBillsList} closePopUp={()=>{setviewBillsList(false)}}>
+      </Window>
+      <Window visible={viewBillsList} closeWindow={()=>{setviewBillsList(false)}}>
         <div className={style.contentWindow}>
           <List title={'Bills'} urlResource={'BillsList'} balance={balance}/>
         </div>
-      </PopUp>
+      </Window>
 
     </main>
   );
