@@ -30,6 +30,9 @@ Terá 3 abas
 
 Cores:
 https://colorhunt.co/palette/404258474e6850577a6b728e
+Defaul:
+Red:    #f56642
+Green:  #93f542
 
 
 @media screen and (min-width: 900px) {

@@ -11,7 +11,7 @@ export function Card ({title, info, myBalance, children}){
 
     const restante = parseFloat(myBalance) - parseFloat(info).toFixed(2);
 
-    const restanteStyle = restante > 0 ? { color: 'white' } : { color: 'red' };
+    const restanteStyle = restante > 0 ? { color: '#93f542' } : { color: '#f56642' };
 
     return (
         <div className={style.card}>
