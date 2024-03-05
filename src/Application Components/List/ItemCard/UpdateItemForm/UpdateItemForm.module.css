@@ -1,0 +1,33 @@
+.formContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 80%;
+    padding: 5px;
+    /* background-color: #404258; */
+}
+.title {
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px dashed gray;
+    margin: 20px;
+}
+.inputField {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.cardItem {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-left: 20px solid #6B728E;
+    border-right: 1px solid #6B728E;
+    border-top: 1px solid #6B728E;
+    border-bottom: 1px solid #6B728E;
+    background-color: #404258;
+}

@@ -1,0 +1,34 @@
+.popUpBackground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .popUpWindow {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 90% 10%;
+    grid-template-areas: 'content content' 'cancelBtn okBtn';
+    width: 50%;
+    height: 50%;
+  }
+  .popUpContent {
+    grid-area: content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #474E68;
+  }
+  .popUpCancelBtn {
+    grid-area: cancelBtn;
+  }
+  .popUpOkBtn {
+    grid-area: okBtn;
+  }
+  

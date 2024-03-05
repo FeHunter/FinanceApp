@@ -5,6 +5,7 @@ import { TextArea } from '../../Visual Components/Input/TextArea';
 import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
 import style from './List.module.css';
 import { Card } from '../../Visual Components/Card/Card';
+import { UpdateItemForm } from './ItemCard/UpdateItemForm/UpdateItemForm';
 
 export function List({title, urlResource, balance}) {
   // Data base
@@ -182,24 +183,7 @@ export function List({title, urlResource, balance}) {
               onClick={() => {
                 RemoveFromList(item);
               }}
-              popUpContent={
-                <div>
-                  <h2>About the item:</h2>
-                  <p>
-                    <span style={{ color: '#abb2d1' }}>Name</span>
-                    <br />
-                    {item[index]?.name}
-                  </p>
-                  <p>
-                    <span style={{ color: '#abb2d1' }}>Price</span>
-                    <br />${item[index]?.price}
-                  </p>
-                  <p>
-                    <span style={{ color: '#abb2d1' }}>Description</span> <br />
-                    {item[index]?.about}
-                  </p>
-                </div>
-              }
+              popUpWindowContent={ <UpdateItemForm item={item}/> }
             />
           );
         })}

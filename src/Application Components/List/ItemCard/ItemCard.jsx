@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import style from './ItemCard.module.css';
 import { FloatingItem } from '../../../Visual Components/Floating Item/FloatingItem';
-import { Window } from '../../../Visual Components/Windows/Window';
+import { PopUpWindow } from '../../../Visual Components/PopUpWindow/PopUpWindow';
 
-export function ItemCard({ item, onClick, WindowContent, onClickSend }) {
+export function ItemCard({ item, onClick,popUpWindowContent, onClickSend }) {
   const [window, setWindow] = useState(false);
-
-  // const [complet, setComplet] = useState(
-  //   item !== null ? item.isComplet : false
-  // );
 
   const [complet, setComplet] = useState(item.isComplet);
 
@@ -61,12 +57,11 @@ export function ItemCard({ item, onClick, WindowContent, onClickSend }) {
             ></i>
           }
           content={
-            <Window
+            <PopUpWindow
               visible={window}
-              content={WindowContent}
-              closeWindow={() => {
-                setWindow(false);
-              }}
+              onClickDone={()=>{setWindow(false);}}
+              onClickCancel={()=>{setWindow(false);}}
+              children={popUpWindowContent}
             />
           }
         />
