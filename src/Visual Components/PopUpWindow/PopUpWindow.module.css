@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 90% 10%;
-    grid-template-areas: 'content content' 'cancelBtn okBtn';
+    grid-template-areas: 'content content' 'btn btn';
     width: 50%;
     height: 50%;
   }
@@ -26,9 +26,9 @@
     background-color: #474E68;
   }
   .popUpCancelBtn {
-    grid-area: cancelBtn;
+    grid-area: btn;
   }
   .popUpOkBtn {
-    grid-area: okBtn;
+    grid-area: btn;
   }
   

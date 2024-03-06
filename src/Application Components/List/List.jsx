@@ -95,6 +95,23 @@ export function List({title, urlResource, balance}) {
     }
   }
 
+  async function UpdateItemFromTheList (oldItem, updatedItem){
+    let updateList = [...list];
+    const index = updateList.indexOf(oldItem);
+    updateList[index].name = updatedItem.name != '' ? updatedItem.name : oldItem.name;
+    updateList[index].price = updatedItem.price != '' ? updatedItem.price : oldItem.price;
+    updateList[index].about = updatedItem.about != '' ? updatedItem.about : oldItem.about;
+    try {
+      // Adiciona o novo item ao Firebase
+      await SendData([...list]);
+      // Atualiza o estado local
+      setList((prevList) => [...prevList]);
+    } catch (error) {
+      console.error('Error adding item to the list:', error);
+      setStatus('Failed to add item');
+    }
+  }
+
   function RemoveFromList(item) {
     let updateList = [...list];
     const index = updateList.indexOf(item);
@@ -183,7 +200,7 @@ export function List({title, urlResource, balance}) {
               onClick={() => {
                 RemoveFromList(item);
               }}
-              popUpWindowContent={ <UpdateItemForm item={item}/> }
+              popUpWindowContent={ <UpdateItemForm item={item} toUpdate={UpdateItemFromTheList}/> }
             />
           );
         })}

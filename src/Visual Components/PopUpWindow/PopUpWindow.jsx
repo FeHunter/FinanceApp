@@ -12,10 +12,7 @@ export function PopUpWindow ({visible, onClickCancel, onClickDone, children}){
                     {children}
                 </div>
                 <span className={style.popUpCancelBtn}>
-                    <Button label={"Cancel"} onClick={onClickCancel} width={'100%'}/>
-                </span>
-                <span className={style.popUpOkBtn}>
-                    <Button label={"Done"} onClick={onClickDone} width={'100%'}/>
+                    <Button label={"Close Window"} onClick={onClickCancel} width={'100%'}/>
                 </span>
             </div>
         </div>
