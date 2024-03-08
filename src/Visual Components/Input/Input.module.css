@@ -1,7 +1,10 @@
 .layout {
-  border: none;
   padding: 4px;
   width: 100%;
   color: white;
   background-color: #474E68;
+  border: 2px solid #6B728E;
+}
+.layout::placeholder {
+  color: rgb(150, 150, 180);
 }

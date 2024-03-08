@@ -8,11 +8,13 @@ import { OnCard } from '../OnCard/OnCard';
 import style from './MainContent.module.css';
 import { Card } from '../../Visual Components/Card/Card';
 import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
+import { BuyStockSimulator } from '../Investment/Buy Stock Simulator/BuyStockSimulator';
 
 export function MainContent({balance}) {
 
   const [viewWishList, setviewWishList] = useState(false);
   const [viewBillsList, setviewBillsList] = useState(false);
+  const [viewInvestments, setviewInvestments] = useState(false);
 
   const [list, setList] = useState(false);
 
@@ -28,6 +30,9 @@ export function MainContent({balance}) {
         </ButtonCard>
         <ButtonCard onClick={()=>{setviewBillsList(true)}}>
           <p>Bills</p>
+        </ButtonCard>
+        <ButtonCard onClick={()=>{setviewInvestments(true)}}>
+          <p>Investments</p>
         </ButtonCard>
         <Window
           visible={list}
@@ -63,6 +68,13 @@ export function MainContent({balance}) {
           <List title={'Bills'} urlResource={'BillsList'} balance={balance}/>
         </div>
       </Window>
+      <Window visible={viewInvestments} closeWindow={()=>{setviewInvestments(false)}}>
+        <div className={style.contentWindow}>
+          <BuyStockSimulator/>
+        </div>
+      </Window>
+
+      
 
     </main>
   );

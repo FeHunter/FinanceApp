@@ -1,0 +1,129 @@
+.InvestStockSimulator {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 35% 30% 20%;
+    grid-template-areas: 'title' 'infoContent' 'buyContent' 'totalContent';
+    background-color: #474e68;
+    padding: 20px 10px;
+    width: 100%;
+    height: 700px;
+    color: white;
+  }
+  
+  .titleContent,
+  .infoContent,
+  .buyContent,
+  .totalContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border: 5px solid #474e68;
+    background-color: #50577a;
+    border-radius: 10px;
+  }
+  
+  .title {
+    color: #b5bcd6;
+    font-weight: 800;
+  }
+  .ticketName {
+    font-weight: 800;
+    color: tomato;
+  }
+  .ticketName {
+    cursor: pointer;
+  }
+  
+  .searchContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .searchButton {
+    margin-left: 5px;
+  }
+  .searchButton:hover {
+    color: #b5bcd6;
+    cursor: pointer;
+  }
+  
+  .titleContent {
+    grid-area: title;
+    justify-content: space-between;
+    background-color: transparent;
+    border: none;
+  }
+  .infoContent {
+    grid-area: infoContent;
+  }
+  .buyContent {
+    grid-area: buyContent;
+  }
+  .totalContent {
+    grid-area: totalContent;
+  }
+  
+  .cell {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 4px 0px;
+    border-bottom: 1px dashed #6b728e;
+  }
+  .editCell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .editCell i {
+    margin-left: 5px;
+  }
+  .editOn {
+    border-bottom: 1px dashed #6b728e;
+  }
+  .editOn:hover {
+    cursor: pointer;
+    border-bottom: 1px solid white;
+  }
+  
+  .editContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+  }
+  .editContent p {
+    font-size: 1.2em;
+  }
+
+  @media screen and (min-width: 900px) {
+    .InvestStockSimulator {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 10% 65% 25%;
+      grid-template-areas: 'title title' 'infoContent buyContent' 'totalContent totalContent';
+      height: 650px;
+      width: 70%;
+    }   
+  
+    .titleContent,
+    .infoContent,
+    .buyContent,
+    .totalContent {
+      justify-content: space-around;
+    }
+    .titleContent {
+      flex-direction: row;
+    }
+    .searchButton {
+        margin-left: 10px;
+    }
+    .cell {
+      justify-content: space-between;
+      width: 50%;
+    }
+  }
+  
