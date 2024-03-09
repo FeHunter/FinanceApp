@@ -1,8 +1,8 @@
 .InvestStockSimulator {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 15% 35% 30% 20%;
-    grid-template-areas: 'title' 'infoContent' 'buyContent' 'totalContent';
+    grid-template-rows: 15% 40% 45%;
+    grid-template-areas: 'title' 'infoContent' 'buyContent';
     background-color: #474e68;
     padding: 20px 10px;
     width: 100%;
@@ -12,8 +12,7 @@
   
   .titleContent,
   .infoContent,
-  .buyContent,
-  .totalContent {
+  .buyContent{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -103,16 +102,15 @@
   @media screen and (min-width: 900px) {
     .InvestStockSimulator {
       grid-template-columns: 50% 50%;
-      grid-template-rows: 10% 65% 25%;
-      grid-template-areas: 'title title' 'infoContent buyContent' 'totalContent totalContent';
+      grid-template-rows: 20% 80%;
+      grid-template-areas: 'title title' 'infoContent buyContent';
       height: 650px;
       width: 70%;
     }   
   
     .titleContent,
     .infoContent,
-    .buyContent,
-    .totalContent {
+    .buyContent{
       justify-content: space-around;
     }
     .titleContent {

@@ -6,21 +6,19 @@ import { Button } from '../../../Visual Components/Button/Button';
 
 export function BuyStockSimulator (){
 
-    const [editShares, setEditShares] = useState(false);
-    const [editSharesPrice, setEditSharesPrice] = useState(false);
-    const [editDividen, setEditDividen] = useState(false);
+  const [sharePrice, setSharePrice] = useState(0);
+  const [dividend, setDividen] = useState(5);
 
+    const [editShares, setEditShares] = useState(false);
     const [numberShares, setNumberShares] = useState(0);
-    const [SharePrice, setSharePrice] = useState(0);
-    const [dividends, setDividends] = useState(0);
 
     const [totalBalance, setTotalBalance] = useState(0);
     const [totalDividend, setTotalDividend] = useState(0);
 
     useEffect(()=>{
-        setTotalBalance( numberShares * SharePrice );
-        setTotalDividend ( numberShares * dividends );
-    }, [numberShares, SharePrice, dividends])
+        setTotalBalance( numberShares * sharePrice );
+        setTotalDividend ( numberShares * dividend );
+    }, [numberShares, sharePrice, dividend])
 
     function EditValue(title, valueToView, editFunction){
         return (
@@ -31,30 +29,43 @@ export function BuyStockSimulator (){
         );
     }
 
+
+    // Load API
+    const [ticket, setTicket] = useState('SNAG11');
+    const [ticketInfo, setTicketInfo] = useState([]);
+    useEffect(()=>{
+      LoadTicket();
+    },[ticket]);
+
+    async function LoadTicket (){
+      await fetch(`https://brapi.dev/api/quote/${ticket.toUpperCase()}?token=s2WAG2ugY5WUyVG7SVDQwV`)
+      .then(res => res.json())
+      .then(res => setTicketInfo(res));
+      setSharePrice(parseFloat(ticketInfo.results[0].regularMarketOpen));
+      setDividen(parseFloat());
+      console.log(ticketInfo.results[0]);
+    }
+
     return (
         <div className={style.InvestStockSimulator}>
           <div className={style.titleContent}>
             <p>
-              Stock Buy Simulator (<span className={style.ticketName}>SNAG11</span>)
+              Stock Buy Simulator (<span className={style.ticketName}>{ticket.toUpperCase()}</span>)
             </p>
             <span className={style.searchContent}>
-              <Input type="text" placeholder="search for ticket" />
-              <span className={style.searchButton}><i class="fa-solid fa-magnifying-glass"></i></span>
+              <Input type="text" placeholder="search for ticket" onBlur={e => {setTicket(e.target.value)}}/>
+              <span className={style.searchButton} onClick={LoadTicket}><i class="fa-solid fa-magnifying-glass"></i></span>
             </span>
           </div>
           <div className={style.infoContent}>
             <p className={style.title}>Ticket Informations</p>
             <span className={style.cell}>
-              <p>Shares</p>
-              <p>10</p>
+              <p>Share Price</p>
+              <p>{parseFloat(sharePrice).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
             </span>
             <span className={style.cell}>
-              <p>Share price</p>
-              <p>R$10,06</p>
-            </span>
-            <span className={style.cell}>
-              <p>Last dividend</p>
-              <p>R$0,11</p>
+              <p>Last Dividend</p>
+              <p>{parseFloat(dividend).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
             </span>
           </div>
           <div className={style.buyContent}>
@@ -66,30 +77,17 @@ export function BuyStockSimulator (){
                 <i class="fa-solid fa-pen-to-square"></i>
               </span>
             </span>
-            <span className={`${style.cell} ${style.editOn}`} onClick={()=>{setEditSharesPrice(true)}}>
-              <p>Current price</p>
+            <span className={style.cell} onClick={()=>{setEditSharesPrice(true)}}>
+              <p>Total price</p>
               <span className={style.editCell}>
-                <p>{parseFloat(SharePrice).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-                <i class="fa-solid fa-pen-to-square"></i>
+                <p>{parseFloat(totalBalance).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
               </span>
             </span>
-            <span className={`${style.cell} ${style.editOn}`}  onClick={()=>{setEditDividen(true)}}>
-              <p>Last dividends</p>
+            <span className={style.cell}  onClick={()=>{setEditDividen(true)}}>
+              <p>Total dividends</p>
               <span className={style.editCell}>
-                <p>{parseFloat(dividends).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-                <i class="fa-solid fa-pen-to-square"></i>
+                <p>{parseFloat(totalDividend).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
               </span>
-            </span>
-          </div>
-          <div className={style.totalContent}>
-            <p className={style.title}>Final Balance</p>
-            <span className={style.cell}>
-              <p>Total Balance</p>
-              <p>{parseFloat(totalBalance).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-            </span>
-            <span className={style.cell}>
-              <p>Total Dividends Balance</p>
-              <p>{parseFloat(totalDividend).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
             </span>
           </div>
 
@@ -97,16 +95,6 @@ export function BuyStockSimulator (){
             visible={editShares}
             children={EditValue('Number of shares', numberShares, e => {setNumberShares(e.target.value)})}
             onClickCancel={()=>{setEditShares(false)}}
-        />
-        <PopUpWindow
-            visible={editSharesPrice}
-            children={EditValue('Current price', SharePrice, e => {setSharePrice(e.target.value)})}
-            onClickCancel={()=>{setEditSharesPrice(false)}}
-        />
-        <PopUpWindow
-            visible={editDividen}
-            children={EditValue('Current dividends', dividends, e => {setDividends(e.target.value)})}
-            onClickCancel={()=>{setEditDividen(false)}}
         />
 
         </div>

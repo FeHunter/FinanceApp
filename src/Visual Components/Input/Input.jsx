@@ -1,6 +1,6 @@
 import styleModule from './Input.module.css';
 
-export function Input({ type, value, placeholder, onChange, title }) {
+export function Input({ type, value, placeholder, onChange, onBlur }) {
   return (
     <label>
       <input
@@ -9,6 +9,7 @@ export function Input({ type, value, placeholder, onChange, title }) {
         value={value}
         placeholder={placeholder}
         onChange={onChange}
+        onBlur={onBlur}
         step="any"
         required="required"
       />
