@@ -8,8 +8,8 @@ import { OnCard } from '../OnCard/OnCard';
 import style from './MainContent.module.css';
 import { Card } from '../../Visual Components/Card/Card';
 import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
-import { BuyStockSimulator } from '../Investment/Buy Stock Simulator/BuyStockSimulator';
 import { FirebaseRoutes } from '../../Routes/API/FirebaseRoutes';
+import { InvestmentScreen } from '../Investment/InvestmentScreen';
 
 export function MainContent({balance}) {
 
@@ -73,7 +73,7 @@ export function MainContent({balance}) {
       </Window>
       <Window visible={viewInvestments} closeWindow={()=>{setviewInvestments(false)}}>
         <div className={style.contentWindow}>
-          <BuyStockSimulator/>
+          <InvestmentScreen/>
         </div>
       </Window>
 

@@ -31,7 +31,7 @@ export function BuyStockSimulator (){
 
 
     // Load API
-    const [ticket, setTicket] = useState('SNAG11');
+    const [ticket, setTicket] = useState('Search for a stock ticket');
     const [ticketInfo, setTicketInfo] = useState([]);
     useEffect(()=>{
       LoadTicket();
@@ -91,11 +91,11 @@ export function BuyStockSimulator (){
             </span>
           </div>
 
-        <PopUpWindow
-            visible={editShares}
-            children={EditValue('Number of shares', numberShares, e => {setNumberShares(e.target.value)})}
-            onClickCancel={()=>{setEditShares(false)}}
-        />
+          <PopUpWindow
+              visible={editShares}
+              children={EditValue('Number of shares', numberShares, e => {setNumberShares(e.target.value)})}
+              onClickCancel={()=>{setEditShares(false)}}
+          />
 
         </div>
       );

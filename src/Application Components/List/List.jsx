@@ -6,8 +6,9 @@ import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
 import style from './List.module.css';
 import { Card } from '../../Visual Components/Card/Card';
 import { UpdateItemForm } from './ItemCard/UpdateItemForm/UpdateItemForm';
+import { StockForm } from './Forms/StockForm/StockForm';
 
-export function List({title, urlResource, balance}) {
+export function List({title, urlResource, balance, formType}) {
   // Data base
   const [status, setStatus] = useState(null);
   const url = 'https://finance-app-ae36c-default-rtdb.firebaseio.com';
@@ -208,6 +209,37 @@ export function List({title, urlResource, balance}) {
     );
   };
 
+  async function SaveStock (form){
+    const stock = {
+      name: form.ticket,
+      price: form.stockAmount,
+      about: form.details,
+    }
+  
+    try {
+      // Adiciona o novo item ao Firebase
+      await SendData([...list, stock]);
+  
+      // Atualiza o estado local
+      setList((prevList) => [...prevList, stock]);
+  
+      // Limpa os campos do formulário
+      setStatus('Added with success');
+    } catch (error) {
+      console.error('Error adding item to the list:', error);
+      setStatus('Failed to add item');
+    }
+  }
+
+  function CheckFormType (){
+    switch(formType){
+      case 'stockList':
+        return <StockForm onClick={SaveStock} status={status}/>
+      default:
+        return FormAddToList();
+    }
+  }
+
   return (
     <Card 
       title={title}
@@ -219,12 +251,12 @@ export function List({title, urlResource, balance}) {
 
         {width >= 900 ? (
           <div className={style.formAndList}>
-            {FormAddToList()}
+            {CheckFormType()}
             {MyListItens()}
           </div>
         ) : (
           <ToggleMenu title="Add to list" view={false}>
-            {FormAddToList()}
+            {CheckFormType()}
           </ToggleMenu>
         )}
 
