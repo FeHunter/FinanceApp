@@ -9,6 +9,7 @@ import style from './MainContent.module.css';
 import { Card } from '../../Visual Components/Card/Card';
 import { ToggleMenu } from '../../Visual Components/ToggleMenu/ToggleMenu';
 import { BuyStockSimulator } from '../Investment/Buy Stock Simulator/BuyStockSimulator';
+import { FirebaseRoutes } from '../../Routes/API/FirebaseRoutes';
 
 export function MainContent({balance}) {
 
@@ -17,6 +18,8 @@ export function MainContent({balance}) {
   const [viewInvestments, setviewInvestments] = useState(false);
 
   const [list, setList] = useState(false);
+
+  const firebase = FirebaseRoutes();
 
   return (
     <main className={style.main}>
@@ -48,7 +51,7 @@ export function MainContent({balance}) {
       {/* Windows */}
       <Window visible={viewWishList} closeWindow={()=>{setviewWishList(false)}}>
         <div className={style.contentWindow}>
-          <List title={'Wishlist'} urlResource={'WishList'} balance={balance}  />
+          <List title={'Wishlist'} urlResource={firebase.wishList} balance={balance}  />
           <ToggleMenu title={'Help'}>
             <div>
               <p>
@@ -65,7 +68,7 @@ export function MainContent({balance}) {
       </Window>
       <Window visible={viewBillsList} closeWindow={()=>{setviewBillsList(false)}}>
         <div className={style.contentWindow}>
-          <List title={'Bills'} urlResource={'BillsList'} balance={balance}/>
+          <List title={'Bills'} urlResource={firebase.billsList} balance={balance}/>
         </div>
       </Window>
       <Window visible={viewInvestments} closeWindow={()=>{setviewInvestments(false)}}>
@@ -79,11 +82,3 @@ export function MainContent({balance}) {
     </main>
   );
 }
-
-
-/*
-Resources URL:
-Lista de desejos: WishList
-Lista de Dividas: BillsList
-
-*/
